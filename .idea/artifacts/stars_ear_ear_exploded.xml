@@ -1,0 +1,26 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="stars-ear:ear exploded">
+    <output-path>$PROJECT_DIR$/stars-ear/target/stars-ear</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="stars-ear/javaeeApplication/JavaEE" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/stars-ear/target/stars-ear/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="dir-copy" path="$PROJECT_DIR$/stars-ear/src/main/application" />
+      <element id="archive" name="stars-web.war">
+        <element id="artifact" artifact-name="stars-web:war exploded" />
+      </element>
+      <element id="archive" name="stars-ejb.jar">
+        <element id="artifact" artifact-name="stars-ejb:ejb exploded" />
+      </element>
+      <element id="directory" name="lib">
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jboss/resteasy/jaxrs-api/3.0.10.Final/jaxrs-api-3.0.10.Final.jar" output-file-name="jaxrs-api.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jboss/resteasy/resteasy-jackson-provider/3.0.19.Final/resteasy-jackson-provider-3.0.19.Final.jar" output-file-name="resteasy-jackson-provider.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-core-asl/1.9.12/jackson-core-asl-1.9.12.jar" output-file-name="jackson-core-asl.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-mapper-asl/1.9.12/jackson-mapper-asl-1.9.12.jar" output-file-name="jackson-mapper-asl.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-jaxrs/1.9.12/jackson-jaxrs-1.9.12.jar" output-file-name="jackson-jaxrs.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-xc/1.9.12/jackson-xc-1.9.12.jar" output-file-name="jackson-xc.jar" />
+      </element>
+    </root>
+  </artifact>
+</component>
