@@ -1,6 +1,7 @@
 package com.stars.filters;
 
 import org.jboss.logging.*;
+import org.keycloak.*;
 
 import javax.inject.*;
 import javax.ws.rs.container.*;
@@ -17,8 +18,8 @@ public class LoggingRestFilter implements ContainerRequestFilter, ContainerRespo
 
     @Override
     public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext) throws IOException {
-        //KeycloakPrincipal userPrincipal = (KeycloakPrincipal) requestContext.getSecurityContext().getUserPrincipal();
-        responseContext.getHeaders().putSingle("Access-Control-Allow-Origin", "*");
+        KeycloakPrincipal userPrincipal = (KeycloakPrincipal) requestContext.getSecurityContext().getUserPrincipal();
+        //responseContext.getHeaders().putSingle("Access-Control-Allow-Origin", "*");
         //logger.info(userPrincipal.getKeycloakSecurityContext().getIdToken().getEmail());
         logger.info(requestContext.getSecurityContext().getUserPrincipal().getName());
 

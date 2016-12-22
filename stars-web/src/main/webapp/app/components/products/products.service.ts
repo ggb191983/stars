@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers, RequestOptions} from "@angular/http";
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/toPromise';
-import {KeycloakService} from "../../keycloak.service";
+import 'rxjs/add/operator/toPromise';;
 
 export class Hero {
   constructor(public id: number, public name: string) { }
@@ -16,16 +15,8 @@ export class ProductService {
 
   getAll() :  Promise<any[]>
   {
-
-    let headers = new Headers();
-    headers.set('Access-Control-Allow-Origin', '*');
-    headers.set('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
-    headers.set('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token');
-    headers.set('Authorization', 'Bearer ' + KeycloakService.auth.authz.token);
     let products = this.http
-    .get(`${this.baseUrl}/products`, {
-        headers: headers
-      })
+    .get(`${this.baseUrl}/products`)
       .map(response => response.json())
       .toPromise();
     return products;

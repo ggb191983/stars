@@ -44,7 +44,10 @@ public class JaxRsActivator extends Application {
         classes.add(AuthenticationResourceRESTService.class);
         classes.add(LoggingRestFilter.class);
 
-        singletons.add(new CorsFilter());
+        /*CorsFilter corsFilter = new CorsFilter();
+        corsFilter.getAllowedOrigins().add("http://localhost:3000");
+        corsFilter.setAllowedMethods("OPTIONS, GET, POST, DELETE, PUT, PATCH");
+        singletons.add(corsFilter);*/
         singletons.add(new TokenAuthenticatedFeature());
     }
     @Override
