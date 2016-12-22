@@ -17,7 +17,7 @@ public interface ProductContract {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    Response addProduct(Product customer);
+    Response addProduct(Product product);
 
     @GET
     @Path("{id}")

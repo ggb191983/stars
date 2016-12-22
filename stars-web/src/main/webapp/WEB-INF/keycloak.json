@@ -1,0 +1,11 @@
+{
+  "realm": "stars",
+  "bearer-only": true,
+  "auth-server-url": "http://localhost:8180/auth",
+  "ssl-required": "external",
+  "resource": "stars-web",
+  "credentials": {
+    "secret": "f199e36f-255f-4370-b67b-79b42a9608cc"
+  },
+  "use-resource-role-mappings": true
+}

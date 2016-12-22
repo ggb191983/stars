@@ -1,0 +1,7 @@
+{
+  "realm": "stars",
+  "auth-server-url": "http://localhost:8180/auth",
+  "ssl-required": "external",
+  "resource": "stars-frontend",
+  "public-client": true
+}

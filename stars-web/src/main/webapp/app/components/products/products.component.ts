@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
 import {ProductService} from "./products.service";
+import {KeycloakService} from "../../keycloak.service";
 
 
 @Component({
@@ -20,6 +21,7 @@ export class ProductListComponent implements OnInit {
 
   getProducts(): void {
     this.productService.getAll().then(products => this.productsList = products);
+    console.log(KeycloakService.auth.authz.token);
   }
 
   ngOnInit(): void {

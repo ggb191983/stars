@@ -16,16 +16,13 @@
  */
 package com.stars.util;
 
-import com.stars.data.*;
-import com.stars.model.*;
-import com.stars.qualifiers.*;
-
-import java.util.logging.Logger;
+import org.jboss.logging.*;
 
 import javax.enterprise.inject.*;
-import javax.enterprise.inject.spi.InjectionPoint;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.enterprise.inject.spi.*;
+import javax.persistence.*;
+
+//import java.util.logging.Logger;
 
 /**
  * This class uses CDI to alias Java EE resources, such as the persistence context, to CDI beans

@@ -16,6 +16,7 @@
  */
 package com.stars.rest;
 
+import com.stars.features.*;
 import com.stars.filters.*;
 
 import javax.ws.rs.*;
@@ -39,8 +40,12 @@ public class JaxRsActivator extends Application {
         classes.add(CustomerResourceRESTService.class);
         classes.add(MemberResourceRESTService.class);
         classes.add(ProductResourceRESTService.class);
+        classes.add(ShoppingCartResourceRestService.class);
+        classes.add(AuthenticationResourceRESTService.class);
+        classes.add(LoggingRestFilter.class);
 
-        singletons.add(new CORSFilter());
+        singletons.add(new CorsFilter());
+        singletons.add(new TokenAuthenticatedFeature());
     }
     @Override
     public Set<Class<?>> getClasses() {

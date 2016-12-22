@@ -16,13 +16,13 @@
  */
 package com.stars.service;
 
-import com.stars.model.Member;
+import com.stars.model.*;
+import org.jboss.logging.*;
 
-import javax.ejb.Stateless;
-import javax.enterprise.event.Event;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import java.util.logging.Logger;
+import javax.ejb.*;
+import javax.enterprise.event.*;
+import javax.inject.*;
+import javax.persistence.*;
 
 // The @Stateless annotation eliminates the need for manual transaction demarcation
 @Stateless
