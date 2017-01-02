@@ -10,6 +10,8 @@ import {AlertModule} from 'ng2-bootstrap/ng2-bootstrap';
 import {ProductService} from "./components/products/products.service";
 import {HttpModule, JsonpModule} from "@angular/http";
 import {ProductListComponent} from "./components/products/products.component";
+import {MainMenuComponent} from "./components/main-menu/main-menu.component"
+import {OffersComponent} from "./components/offers/offers.component"
 import {KeycloakService} from "./keycloak.service";
 
 const routes: Routes = [
@@ -27,7 +29,7 @@ const routes: Routes = [
                   JsonpModule,
                   RouterModule.forRoot(routes)
                 ],
-  declarations: [ AppComponent, ProductListComponent ],
+  declarations: [ AppComponent, ProductListComponent, MainMenuComponent, OffersComponent ],
   providers:    [ ProductService,  KeycloakService,
                   {
                     provide: Http,

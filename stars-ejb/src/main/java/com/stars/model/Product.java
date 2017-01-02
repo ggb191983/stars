@@ -1,97 +1,133 @@
 package com.stars.model;
 
-import com.stars.data.*;
-import org.hibernate.validator.constraints.*;
-
 import javax.persistence.*;
-import javax.validation.constraints.*;
-import javax.xml.bind.annotation.*;
 import java.io.*;
+import java.math.*;
 
 /**
- * Created by Battlehammer on 03/12/2016.
+ * Created by Battlehammer on 01/01/2017.
  */
 @Entity
-@XmlRootElement
-@Table(name = "Products")
-public class Product extends Identity implements Serializable {
-    private static final long serialVersionUID = 1L;
+@Table(name = "products", schema = "starsdb")
+public class Product implements Serializable {
+    private int productId;
+    private String productName;
+    private String productBriefDescription;
+    private BigDecimal productPrice;
+    private Integer productSubCategoryId;
+    private Integer productCartId;
+    private SubCategory subCategoriesByProductSubCategoryId;
+    private Cart cartsByProductCartId;
 
-    @NotNull
-    @NotEmpty
-    @Size(min = 1, max = 150)
-    @Pattern(regexp = "[^0-9]*", message = "Must not contain numbers")
-    private String title;
-
-    @NotNull
-    @NotEmpty
-    @Size(min = 1, max = 5000)
-    private String description;
-
-    @NotNull
-    @NotEmpty
-    @Size(min = 1, max = 2000)
-    private String link;
-
-    @NotNull
-    @NotEmpty
-    @Size(min = 1, max = 2000)
-    @Column(name = "image_link")
-    private String imageLink;
-
-    @Size(min = 1, max = 2000)
-    @Column(name = "additional_image_link")
-    private String additionalImageLink;
-
-    @Size(min = 1, max = 2000)
-    @Column(name = "mobile_link")
-    private String mobileLink;
-
-    public String getTitle() {
-        return title;
+    @Id
+    @Column(name = "product_id")
+    public int getProductId() {
+        return productId;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 
-    public String getDescription() {
-        return description;
+    @Basic
+    @Column(name = "product_name")
+    public String getProductName() {
+        return productName;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
-    public String getLink() {
-        return link;
+    @Basic
+    @Column(name = "product_brief_description")
+    public String getProductBriefDescription() {
+        return productBriefDescription;
     }
 
-    public void setLink(String link) {
-        this.link = link;
+    public void setProductBriefDescription(String productBriefDescription) {
+        this.productBriefDescription = productBriefDescription;
     }
 
-    public String getImageLink() {
-        return imageLink;
+    @Basic
+    @Column(name = "product_price")
+    public BigDecimal getProductPrice() {
+        return productPrice;
     }
 
-    public void setImageLink(String imageLink) {
-        this.imageLink = imageLink;
+    public void setProductPrice(BigDecimal productPrice) {
+        this.productPrice = productPrice;
     }
 
-    public String getAdditionalImageLink() {
-        return additionalImageLink;
+    @Basic
+    @Column(name = "product_sub_category_id", insertable = false, updatable = false)
+    public Integer getProductSubCategoryId() {
+        return productSubCategoryId;
     }
 
-    public void setAdditionalImageLink(String additionalImageLink) {
-        this.additionalImageLink = additionalImageLink;
+    public void setProductSubCategoryId(Integer productSubCategoryId) {
+        this.productSubCategoryId = productSubCategoryId;
     }
 
-    public String getMobileLink() {
-        return mobileLink;
+    @Basic
+    @Column(name = "product_cart_id", insertable = false, updatable = false)
+    public Integer getProductCartId() {
+        return productCartId;
     }
 
-    public void setMobileLink(String mobileLink) {
-        this.mobileLink = mobileLink;
+    public void setProductCartId(Integer productCartId) {
+        this.productCartId = productCartId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Product product = (Product) o;
+
+        if (productId != product.productId) return false;
+        if (productName != null ? !productName.equals(product.productName) : product.productName != null) return false;
+        if (productBriefDescription != null ? !productBriefDescription.equals(product.productBriefDescription) : product.productBriefDescription != null)
+            return false;
+        if (productPrice != null ? !productPrice.equals(product.productPrice) : product.productPrice != null)
+            return false;
+        if (productSubCategoryId != null ? !productSubCategoryId.equals(product.productSubCategoryId) : product.productSubCategoryId != null)
+            return false;
+        if (productCartId != null ? !productCartId.equals(product.productCartId) : product.productCartId != null)
+            return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = productId;
+        result = 31 * result + (productName != null ? productName.hashCode() : 0);
+        result = 31 * result + (productBriefDescription != null ? productBriefDescription.hashCode() : 0);
+        result = 31 * result + (productPrice != null ? productPrice.hashCode() : 0);
+        result = 31 * result + (productSubCategoryId != null ? productSubCategoryId.hashCode() : 0);
+        result = 31 * result + (productCartId != null ? productCartId.hashCode() : 0);
+        return result;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "product_sub_category_id", referencedColumnName = "sub_category_id")
+    public SubCategory getSubCategoriesByProductSubCategoryId() {
+        return subCategoriesByProductSubCategoryId;
+    }
+
+    public void setSubCategoriesByProductSubCategoryId(SubCategory subCategoriesByProductSubCategoryId) {
+        this.subCategoriesByProductSubCategoryId = subCategoriesByProductSubCategoryId;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "product_cart_id", referencedColumnName = "carts_id")
+    public Cart getCartsByProductCartId() {
+        return cartsByProductCartId;
+    }
+
+    public void setCartsByProductCartId(Cart cartsByProductCartId) {
+        this.cartsByProductCartId = cartsByProductCartId;
     }
 }

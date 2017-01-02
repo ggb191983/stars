@@ -21,7 +21,7 @@ export class ProductListComponent implements OnInit {
 
   getProducts(): void {
     this.productService.getAll().then(products => this.productsList = products);
-    //console.log(KeycloakService.auth.authz.token);
+    console.log(KeycloakService.auth.authz.token);
   }
 
   ngOnInit(): void {

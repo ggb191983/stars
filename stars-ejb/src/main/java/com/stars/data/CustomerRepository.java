@@ -1,20 +1,18 @@
-package com.stars.data;
+/*package com.stars.data;
 
-import com.stars.model.Customer;
+import com.stars.model.*;
 
-import javax.ejb.Local;
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
-import java.util.List;
+import javax.ejb.*;
+import javax.enterprise.context.*;
+import javax.inject.*;
+import javax.persistence.*;
+import javax.persistence.criteria.*;
+import java.util.*;
 
 /**
  * Created by Battlehammer on 23/11/2016.
  */
-
+/*
 @Local
 @ApplicationScoped
 public class CustomerRepository {
@@ -47,4 +45,4 @@ public class CustomerRepository {
         criteria.select(customer).orderBy(cb.asc(customer.get("name")));
         return em.createQuery(criteria).getResultList();
     }
-}
+}*/

@@ -25,11 +25,21 @@
          data source, this example data source is just for development and testing! -->
       <!-- The datasource is deployed as <EAR>/META-INF/stars-ds.xml, you
          can find it in the source at ear/src/main/application/META-INF/stars-ds.xml -->
-      <jta-data-source>java:jboss/datasources/starsDS</jta-data-source>
-      <properties>
-         <!-- Properties for Hibernate -->
-         <property name="hibernate.hbm2ddl.auto" value="create-drop" />
-         <property name="hibernate.show_sql" value="true" />
-      </properties>
+      <jta-data-source>java:jboss/datasources/StarsDS</jta-data-source>
+       <class>com.stars.model.Cart</class>
+       <class>com.stars.model.Product</class>
+       <class>com.stars.model.Category</class>
+       <class>com.stars.model.SubCategory</class>
+       <class>com.stars.model.User</class>
+
+       <properties>
+           <!--<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>-->
+           <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+           <property name="hibernate.show_sql" value="true"/>
+           <property name="hibernate.hbm2ddl.auto" value="validate"/>
+           <property name="hibernate.flushMode" value="FLUSH_AUTO" />
+           <property name="hibernate.connection.CharSet" value="utf8"/>
+           <property name="hibernate.connection.characterEncoding" value="utf8"/>
+       </properties>
    </persistence-unit>
 </persistence>

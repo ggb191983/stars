@@ -1,8 +1,8 @@
 package com.stars.rest;
 
 import com.stars.data.*;
+import com.stars.interceptors.*;
 import com.stars.model.*;
-import com.stars.qualifiers.*;
 import com.stars.service.*;
 import org.jboss.logging.*;
 
@@ -13,25 +13,23 @@ import java.util.*;
 /**
  * Created by Battlehammer on 04/12/2016.
  */
+@Logged
 public class ProductResourceRESTService implements ProductContract{
 
     @Inject
     private Logger log;
 
     @Inject
-    @QProductDao
-    private Dao<Product> dao;
+    private ProductDao dao;
 
     @Override
     public List<Product> getAllProducts() {
-        System.out.println("holaaaaaaaaaaa");
-        log.info("Holaaaaaaaaaaaaaaaaa");
-        return dao.getAll();
+        return dao.findAll();
     }
 
     @Override
     public Response addProduct(Product product) {
-        dao.add(product);
+        dao.persist(product);
         String result = "Customer created : " + product;
         log.info(result);
         return Response.status(201).entity(result).build();
@@ -39,11 +37,11 @@ public class ProductResourceRESTService implements ProductContract{
 
     @Override
     public Product getProduct(Long id) {
-        return (Product) dao.get(id);
+        return dao.find(id);
     }
 
     @Override
     public void updateProduct(Product product) {
-        dao.add(product);
+        dao.persist(product);
     }
 }

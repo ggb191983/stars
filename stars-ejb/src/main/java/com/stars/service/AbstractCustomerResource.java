@@ -1,15 +1,9 @@
 package com.stars.service;
 
-import com.stars.model.Customer;
-
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import java.util.List;
-
 /**
  * Created by Battlehammer on 23/11/2016.
  */
+/*
 @Path("/customers")
 public interface AbstractCustomerResource {
     @GET
@@ -29,3 +23,4 @@ public interface AbstractCustomerResource {
     @Consumes(MediaType.APPLICATION_JSON)
     void updateCustomer(Customer customer);
 }
+*/

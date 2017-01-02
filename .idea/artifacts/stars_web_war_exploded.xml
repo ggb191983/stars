@@ -6,6 +6,15 @@
         <element id="directory" name="classes">
           <element id="module-output" name="stars-web" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.webjars:angularjs:2.0.0-alpha.19" />
+          <element id="library" level="project" name="Maven: com.auth0:java-jwt:3.0.1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.8.4" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.8.0" />
+          <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.10" />
+          <element id="library" level="project" name="Maven: org.bouncycastle:bcprov-jdk15on:1.55" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.5.4" />
+        </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/stars-web/target/stars-web/META-INF/MANIFEST.MF" />

@@ -37,8 +37,6 @@ public class JaxRsActivator extends Application {
     private Set<Class<?>> classes = new HashSet<>();
 
     public JaxRsActivator() {
-        classes.add(CustomerResourceRESTService.class);
-        classes.add(MemberResourceRESTService.class);
         classes.add(ProductResourceRESTService.class);
         classes.add(ShoppingCartResourceRestService.class);
         classes.add(AuthenticationResourceRESTService.class);
