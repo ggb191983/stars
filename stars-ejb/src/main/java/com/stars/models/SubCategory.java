@@ -1,23 +1,30 @@
-package com.stars.model;
+package com.stars.models;
+
+import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.*;
 import java.io.*;
-import java.util.*;
 
 /**
- * Created by Battlehammer on 01/01/2017.
+ * Created by Battlehammer on 06/01/2017.
  */
 @Entity
 @Table(name = "sub_categories", schema = "starsdb")
 public class SubCategory implements Serializable {
-    private int subCategoryId;
-    private String subCategoryName;
-    private String subCategoryDescription;
-    private Collection<Product> productsesBySubCategoryId;
-    private Category categoriesBySubCategoryCategoryId;
-
     @Id
     @Column(name = "sub_category_id")
+    private int subCategoryId;
+    @Basic
+    @Column(name = "sub_category_name")
+    private String subCategoryName;
+    @Basic
+    @Column(name = "sub_category_description")
+    private String subCategoryDescription;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH })
+    @JoinColumn(name = "sub_category_category_id", referencedColumnName = "category_id", nullable = false)
+    @JsonIgnore
+    private Category category;
+
     public int getSubCategoryId() {
         return subCategoryId;
     }
@@ -26,8 +33,6 @@ public class SubCategory implements Serializable {
         this.subCategoryId = subCategoryId;
     }
 
-    @Basic
-    @Column(name = "sub_category_name")
     public String getSubCategoryName() {
         return subCategoryName;
     }
@@ -36,8 +41,6 @@ public class SubCategory implements Serializable {
         this.subCategoryName = subCategoryName;
     }
 
-    @Basic
-    @Column(name = "sub_category_description")
     public String getSubCategoryDescription() {
         return subCategoryDescription;
     }
@@ -70,22 +73,11 @@ public class SubCategory implements Serializable {
         return result;
     }
 
-    @OneToMany(mappedBy = "subCategoriesByProductSubCategoryId")
-    public Collection<Product> getProductsesBySubCategoryId() {
-        return productsesBySubCategoryId;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setProductsesBySubCategoryId(Collection<Product> productsesBySubCategoryId) {
-        this.productsesBySubCategoryId = productsesBySubCategoryId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "sub_category_category_id", referencedColumnName = "category_id", nullable = false)
-    public Category getCategoriesBySubCategoryCategoryId() {
-        return categoriesBySubCategoryCategoryId;
-    }
-
-    public void setCategoriesBySubCategoryCategoryId(Category categoriesBySubCategoryCategoryId) {
-        this.categoriesBySubCategoryCategoryId = categoriesBySubCategoryCategoryId;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

@@ -7,24 +7,24 @@ import javax.ws.rs.core.*;
 import java.util.*;
 
 /**
- * Created by Battlehammer on 04/12/2016.
+ * Created by Battlehammer on 02/01/2017.
  */
-@Path("/product")
-public interface ProductContract {
+@Path("/category")
+public interface CategoryContract {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    List<Product> getAllProducts();
+    List<Category> getAllCategories();
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    Response addProduct(Product product);
+    Response addCategory(Category category);
 
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    Product getProduct(@PathParam("id") Long id);
+    Category getCategory(@PathParam("id") Long id);
 
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    void updateProduct(Product product);
+    void updateCategory(Category category);
 }

@@ -12,11 +12,11 @@ public interface ShoppingCartContract {
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    Response addProduct(@PathParam("id") String productId);
+    Response addCart(@PathParam("id") String productId);
 
     //@RolesAllowed("admin")
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    Response getAllProducts();
+    Response getAllCarts();
 }

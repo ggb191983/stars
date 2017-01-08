@@ -1,22 +1,32 @@
-package com.stars.model;
+package com.stars.models;
 
 import javax.persistence.*;
 import java.io.*;
 import java.util.*;
 
 /**
- * Created by Battlehammer on 01/01/2017.
+ * Created by Battlehammer on 06/01/2017.
  */
+@NamedEntityGraph(
+        attributeNodes={@NamedAttributeNode("subCategories")}
+)
 @Entity
 @Table(name = "categories", schema = "starsdb")
+@NamedQuery(name="Category.findAll", query="SELECT c FROM Category c")
 public class Category implements Serializable {
-    private int categoryId;
-    private String categoryName;
-    private String categoryDescription;
-    private Collection<SubCategory> subCategoriesByCategoryId;
 
     @Id
     @Column(name = "category_id")
+    private int categoryId;
+    @Basic
+    @Column(name = "category_name")
+    private String categoryName;
+    @Basic
+    @Column(name = "category_description")
+    private String categoryDescription;
+    @OneToMany(mappedBy = "category", targetEntity=com.stars.models.SubCategory.class, cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+    private Set<SubCategory> subCategories;
+
     public int getCategoryId() {
         return categoryId;
     }
@@ -25,8 +35,6 @@ public class Category implements Serializable {
         this.categoryId = categoryId;
     }
 
-    @Basic
-    @Column(name = "category_name")
     public String getCategoryName() {
         return categoryName;
     }
@@ -35,8 +43,6 @@ public class Category implements Serializable {
         this.categoryName = categoryName;
     }
 
-    @Basic
-    @Column(name = "category_description")
     public String getCategoryDescription() {
         return categoryDescription;
     }
@@ -69,12 +75,11 @@ public class Category implements Serializable {
         return result;
     }
 
-    @OneToMany(mappedBy = "categoriesBySubCategoryCategoryId")
-    public Collection<SubCategory> getSubCategoriesByCategoryId() {
-        return subCategoriesByCategoryId;
+    public Set<SubCategory> getSubCategories() {
+        return this.subCategories;
     }
 
-    public void setSubCategoriesByCategoryId(Collection<SubCategory> subCategoriesByCategoryId) {
-        this.subCategoriesByCategoryId = subCategoriesByCategoryId;
-    }
+    public void setSubCategories(Set<SubCategory> subCategories) {
+        this.subCategories = subCategories;
+}
 }

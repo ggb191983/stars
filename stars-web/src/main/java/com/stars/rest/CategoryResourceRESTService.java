@@ -14,34 +14,34 @@ import java.util.*;
  * Created by Battlehammer on 04/12/2016.
  */
 @Logged
-public class ProductResourceRESTService implements ProductContract{
+public class CategoryResourceRESTService implements CategoryContract {
 
     @Inject
     private Logger log;
 
     @Inject
-    private ProductDao dao;
+    private CategoryDao dao;
 
     @Override
-    public List<Product> getAllProducts() {
+    public List<Category> getAllCategories() {
         return dao.findAll();
     }
 
     @Override
-    public Response addProduct(Product product) {
-        dao.persist(product);
-        String result = "Customer created : " + product;
+    public Response addCategory(Category category) {
+        dao.persist(category);
+        String result = "Customer created : " + category;
         log.info(result);
         return Response.status(201).entity(result).build();
     }
 
     @Override
-    public Product getProduct(Long id) {
+    public Category getCategory(Long id) {
         return dao.find(id);
     }
 
     @Override
-    public void updateProduct(Product product) {
-        dao.persist(product);
+    public void updateCategory(Category category) {
+        dao.persist(category);
     }
 }

@@ -1,6 +1,6 @@
 package com.stars.data;
 
-import com.stars.model.*;
+import com.stars.models.*;
 
 /**
  * Created by Battlehammer on 24/12/2016.

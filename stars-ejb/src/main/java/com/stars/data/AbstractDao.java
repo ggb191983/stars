@@ -31,9 +31,9 @@ public abstract class AbstractDao<T extends Serializable> implements Dao<T>, Ser
     }
 
     public List<T> findAll() {
-        final CriteriaQuery<T> criteriaQuery = em.getCriteriaBuilder().createQuery(clazz);
-        criteriaQuery.select(criteriaQuery.from(clazz));
-        return em.createQuery(criteriaQuery).getResultList();
+        final CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+        cq.select(cq.from(clazz));
+        return em.createQuery(cq).getResultList();
     }
 
     public void deleteAll() {
@@ -47,10 +47,30 @@ public abstract class AbstractDao<T extends Serializable> implements Dao<T>, Ser
         em.flush();
     }
 
+    public void remove(T entity) {
+        em.remove(em.merge(entity));
+    }
+
     public T edit(T entity) {
         T t = em.merge(entity);
         em.flush();
         return t;
+    }
+
+    public List<T> findRange(int[] range) {
+        CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+        cq.select(cq.from(clazz));
+        Query q = em.createQuery(cq);
+        q.setMaxResults(range[1] - range[0]);
+        q.setFirstResult(range[0]);
+        return q.getResultList();
+    }
+    public int count() {
+        CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+        Root<T> rt = cq.from(clazz);
+        cq.select(em.getCriteriaBuilder().count(rt));
+        Query q = em.createQuery(cq);
+        return ((Long) q.getSingleResult()).intValue();
     }
 
     protected EntityManager getEntityManager() {

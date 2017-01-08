@@ -14,14 +14,14 @@ public class ShoppingCartResourceRestService implements ShoppingCartContract {
     private ShoppingCartServiceBean service;
 
     @Override
-    public Response addProduct(String productId) {
+    public Response addCart(String productId) {
         service.addProduct(productId);
         return Response.ok(service.getAllProducts(), MediaType.APPLICATION_JSON)
                 .build();
     }
 
     @Override
-    public Response getAllProducts(/*@Context HttpServletRequest context*/) {
+    public Response getAllCarts(/*@Context HttpServletRequest context*/) {
         /*KeycloakSecurityContext securityContext = (KeycloakSecurityContext) context.getAttribute(KeycloakSecurityContext.class.getName());
         System.out.println("Holaaaaaaa");
         AccessToken accessToken = securityContext.getToken();

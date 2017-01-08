@@ -3,12 +3,14 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent}  from './app.component';
 import {RouterModule, Routes}  from '@angular/router';
 import {KeycloakHttp} from "./keycloak.http";
-import {HttpModule, Http, XHRBackend, RequestOptions} from '@angular/http';
+import {HttpModule, Http, XHRBackend, RequestOptions, JsonpModule} from '@angular/http';
+import {MaterialModule} from '@angular/material';
 
 // import ng2-bootstrap alerts module
 import {AlertModule} from 'ng2-bootstrap/ng2-bootstrap';
 import {ProductService} from "./components/products/products.service";
-import {HttpModule, JsonpModule} from "@angular/http";
+import {CategoriesService} from "./components/categories/categories.service";
+import {CategoriesComponent} from "./components/categories/categories.component";
 import {ProductListComponent} from "./components/products/products.component";
 import {MainMenuComponent} from "./components/main-menu/main-menu.component"
 import {OffersComponent} from "./components/offers/offers.component"
@@ -27,10 +29,11 @@ const routes: Routes = [
                   BrowserModule,
                   HttpModule,
                   JsonpModule,
-                  RouterModule.forRoot(routes)
+                  RouterModule.forRoot(routes),
+                  MaterialModule.forRoot()
                 ],
-  declarations: [ AppComponent, ProductListComponent, MainMenuComponent, OffersComponent ],
-  providers:    [ ProductService,  KeycloakService,
+  declarations: [ AppComponent, ProductListComponent, MainMenuComponent, OffersComponent, CategoriesComponent ],
+  providers:    [ ProductService,  KeycloakService, CategoriesService,
                   {
                     provide: Http,
                     useFactory:

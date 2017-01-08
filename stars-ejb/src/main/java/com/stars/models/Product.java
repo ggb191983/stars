@@ -1,11 +1,11 @@
-package com.stars.model;
+package com.stars.models;
 
 import javax.persistence.*;
 import java.io.*;
 import java.math.*;
 
 /**
- * Created by Battlehammer on 01/01/2017.
+ * Created by Battlehammer on 06/01/2017.
  */
 @Entity
 @Table(name = "products", schema = "starsdb")
@@ -14,9 +14,6 @@ public class Product implements Serializable {
     private String productName;
     private String productBriefDescription;
     private BigDecimal productPrice;
-    private Integer productSubCategoryId;
-    private Integer productCartId;
-    private SubCategory subCategoriesByProductSubCategoryId;
     private Cart cartsByProductCartId;
 
     @Id
@@ -59,26 +56,6 @@ public class Product implements Serializable {
         this.productPrice = productPrice;
     }
 
-    @Basic
-    @Column(name = "product_sub_category_id", insertable = false, updatable = false)
-    public Integer getProductSubCategoryId() {
-        return productSubCategoryId;
-    }
-
-    public void setProductSubCategoryId(Integer productSubCategoryId) {
-        this.productSubCategoryId = productSubCategoryId;
-    }
-
-    @Basic
-    @Column(name = "product_cart_id", insertable = false, updatable = false)
-    public Integer getProductCartId() {
-        return productCartId;
-    }
-
-    public void setProductCartId(Integer productCartId) {
-        this.productCartId = productCartId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -92,10 +69,6 @@ public class Product implements Serializable {
             return false;
         if (productPrice != null ? !productPrice.equals(product.productPrice) : product.productPrice != null)
             return false;
-        if (productSubCategoryId != null ? !productSubCategoryId.equals(product.productSubCategoryId) : product.productSubCategoryId != null)
-            return false;
-        if (productCartId != null ? !productCartId.equals(product.productCartId) : product.productCartId != null)
-            return false;
 
         return true;
     }
@@ -106,19 +79,7 @@ public class Product implements Serializable {
         result = 31 * result + (productName != null ? productName.hashCode() : 0);
         result = 31 * result + (productBriefDescription != null ? productBriefDescription.hashCode() : 0);
         result = 31 * result + (productPrice != null ? productPrice.hashCode() : 0);
-        result = 31 * result + (productSubCategoryId != null ? productSubCategoryId.hashCode() : 0);
-        result = 31 * result + (productCartId != null ? productCartId.hashCode() : 0);
         return result;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "product_sub_category_id", referencedColumnName = "sub_category_id")
-    public SubCategory getSubCategoriesByProductSubCategoryId() {
-        return subCategoriesByProductSubCategoryId;
-    }
-
-    public void setSubCategoriesByProductSubCategoryId(SubCategory subCategoriesByProductSubCategoryId) {
-        this.subCategoriesByProductSubCategoryId = subCategoriesByProductSubCategoryId;
     }
 
     @ManyToOne

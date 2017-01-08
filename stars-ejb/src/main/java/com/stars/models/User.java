@@ -1,18 +1,16 @@
-package com.stars.model;
+package com.stars.models;
 
 import javax.persistence.*;
 import java.io.*;
 import java.util.*;
 
 /**
- * Created by Battlehammer on 01/01/2017.
+ * Created by Battlehammer on 06/01/2017.
  */
 @Entity
-@Table(name = "users", schema = "starsdb")
 public class User implements Serializable {
     private UUID userUuid;
     private String userName;
-    private Collection<Cart> cartsesByUserUuid;
 
     @Id
     @Column(name = "user_uuid")
@@ -52,14 +50,5 @@ public class User implements Serializable {
         int result = userUuid.hashCode();
         result = 31 * result + (userName != null ? userName.hashCode() : 0);
         return result;
-    }
-
-    @OneToMany(mappedBy = "usersByCartsUserUuid")
-    public Collection<Cart> getCartsesByUserUuid() {
-        return cartsesByUserUuid;
-    }
-
-    public void setCartsesByUserUuid(Collection<Cart> cartsesByUserUuid) {
-        this.cartsesByUserUuid = cartsesByUserUuid;
     }
 }
