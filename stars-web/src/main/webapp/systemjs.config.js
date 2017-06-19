@@ -13,6 +13,10 @@
       // our app is within the app folder
       app: 'app',
 
+      'core-js-shim': 'npm:core-js/client/shim.min.js',
+      'zone': 'npm:zone.js/dist/zone.js',
+      'reflect': 'npm:reflect-metadata/Reflect.js',
+
       //moment: 'node_modules/moment/moment.js',
       'ng2-bootstrap/ng2-bootstrap': 'npm:ng2-bootstrap/bundles/ng2-bootstrap.umd.js',
       'moment': 'npm:moment/moment.js',
@@ -30,6 +34,7 @@
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
       '@angular/upgrade': 'npm:@angular/upgrade/bundles/upgrade.umd.js',
       '@angular/upgrade/static': 'npm:@angular/upgrade/bundles/upgrade-static.umd.js',
+      '@angular/flex-layout' : 'npm:@angular/flex-layout/bundles/flex-layout.umd.js',
 
       // other libraries
       'rxjs':                      'npm:rxjs',

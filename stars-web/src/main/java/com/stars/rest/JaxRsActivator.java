@@ -31,7 +31,7 @@ import java.util.*;
  * Resources are served relative to the servlet path specified in the {@link ApplicationPath} annotation.
  * </p>
  */
-@ApplicationPath("/api")
+@ApplicationPath("/")
 public class JaxRsActivator extends Application {
     private Set<Object> singletons = new HashSet<>();
     private Set<Class<?>> classes = new HashSet<>();

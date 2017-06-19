@@ -8,5 +8,12 @@ export class Category {
   id : number;
   name : string;
   description : string;
-  subCategories : SubCategory[];
+  categoryParent : string;
+
+  constructor(category: any) {
+    this.id = category.categoryId;
+    this.name = category.name;
+    this.description = category.description;
+    this.categoryParent = category.category_parent;
+  }
 }

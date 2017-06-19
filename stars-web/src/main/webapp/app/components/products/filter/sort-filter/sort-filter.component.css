@@ -1,0 +1,30 @@
+
+ul#sort-lists {
+  padding: 5px;
+  border: 1px solid #CCC;
+  border-radius: 5px;
+  list-style: none;
+  display: inline-block;
+}
+
+ul#sort-lists li {
+  display: inline;
+  margin: 2px 0;
+  padding: 0 8px;
+  border-left: 1px solid #eee;
+  cursor: pointer;
+}
+
+ul#sort-lists li:hover {
+  color: #ffc966;
+}
+
+ul#sort-lists li:first-child {
+  border: none !important;
+}
+
+ul#sort-lists li.selected {
+  padding-right: 14px;
+  color: #f90;
+  font-weight: 700;
+}

@@ -1,0 +1,12 @@
+#price-filter input {
+  height: 20px;
+}
+
+#price-range-list {
+  display: inline;
+}
+
+#price-range-list li {
+  list-style-type: none;
+  display: inline;
+}

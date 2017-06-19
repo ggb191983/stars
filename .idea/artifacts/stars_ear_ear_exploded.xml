@@ -15,14 +15,10 @@
       </element>
       <element id="directory" name="lib">
         <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jboss/resteasy/jaxrs-api/3.0.10.Final/jaxrs-api-3.0.10.Final.jar" output-file-name="jaxrs-api.jar" />
-        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jboss/resteasy/resteasy-jackson-provider/3.0.19.Final/resteasy-jackson-provider-3.0.19.Final.jar" output-file-name="resteasy-jackson-provider.jar" />
-        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-core-asl/1.9.12/jackson-core-asl-1.9.12.jar" output-file-name="jackson-core-asl.jar" />
-        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-mapper-asl/1.9.12/jackson-mapper-asl-1.9.12.jar" output-file-name="jackson-mapper-asl.jar" />
-        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-jaxrs/1.9.12/jackson-jaxrs-1.9.12.jar" output-file-name="jackson-jaxrs.jar" />
-        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-xc/1.9.12/jackson-xc-1.9.12.jar" output-file-name="jackson-xc.jar" />
         <element id="file-copy" path="$MAVEN_REPOSITORY$/javax/servlet/servlet-api/3.0-alpha-1/servlet-api-3.0-alpha-1.jar" output-file-name="servlet-api.jar" />
         <element id="file-copy" path="$MAVEN_REPOSITORY$/jboss/jboss-annotations-ejb3/4.2.2.GA/jboss-annotations-ejb3-4.2.2.GA.jar" output-file-name="jboss-annotations-ejb3.jar" />
         <element id="file-copy" path="$MAVEN_REPOSITORY$/javax/annotation/jsr250-api/1.0/jsr250-api-1.0.jar" output-file-name="jsr250-api.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-annotations/2.9.0.pr1/jackson-annotations-2.9.0.pr1.jar" output-file-name="jackson-annotations.jar" />
       </element>
     </root>
   </artifact>

@@ -30,7 +30,13 @@
        <class>com.stars.models.Product</class>
        <class>com.stars.models.User</class>
        <class>com.stars.models.Category</class>
-       <class>com.stars.models.SubCategory</class>
+       <class>com.stars.models.Attribute</class>
+       <class>com.stars.models.AttributesGroup</class>
+       <class>com.stars.models.AttributesType</class>
+       <class>com.stars.models.AttributesValue</class>
+       <class>com.stars.models.FeatureMultivalue</class>
+       <class>com.stars.models.Feature</class>
+       <class>com.stars.models.ProductsFeature</class>
 
        <properties>
            <!--<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>-->
@@ -42,8 +48,8 @@
            <property name="hibernate.connection.characterEncoding" value="utf8"/>
            <property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306/starsdb"/>
            <property name="eclipselink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-           <property name="eclipselink.jdbc.user"/>
-           <property name="eclipselink.jdbc.password"/>
+           <property name="eclipselink.jdbc.user" value="root"/>
+           <property name="eclipselink.jdbc.password" value=""/>
            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/starsdb"/>
            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
            <property name="hibernate.connection.username"/>

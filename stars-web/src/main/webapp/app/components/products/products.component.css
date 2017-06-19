@@ -1,0 +1,11 @@
+#gallery ul {
+  list-style: none;
+  margin: 0px;
+}
+
+#gallery ul li {
+  float: left;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  width: 200px;
+}

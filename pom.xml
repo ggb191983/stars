@@ -36,6 +36,8 @@
         <module>stars-ejb</module>
         <module>stars-web</module>
         <module>stars-ear</module>
+        <module>stars-functional-tests</module>
+        <module>stars-service</module>
     </modules>
 
     <properties>
@@ -110,6 +112,13 @@
                 <version>${version.jboss.bom}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.wildfly.arquillian</groupId>
+                <artifactId>wildfly-arquillian-container-managed</artifactId>
+                <version>2.0.2.Final</version>
+                <scope>test</scope>
             </dependency>
 
         </dependencies>

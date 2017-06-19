@@ -1,7 +1,6 @@
 import {Component, OnInit} from "@angular/core";
-import {Router} from "@angular/router";
-import {ProductService} from "./products.service";
-import {KeycloakService} from "../../keycloak.service";
+import {Router, ActivatedRoute} from "@angular/router";
+import {ProductService} from "../../services/products.service";
 
 
 @Component({
@@ -16,16 +15,21 @@ export class ProductListComponent implements OnInit {
   selectedProduct: any;
 
   constructor(
+    private route: ActivatedRoute,
     private router: Router,
     private productService: ProductService) { }
 
   getProducts(): void {
     this.productService.getAll().then(products => this.productsList = products);
-    console.log(KeycloakService.auth.authz.token);
   }
 
   ngOnInit(): void {
-    this.getProducts();
+    let id = +this.route.snapshot.params['id'] | null;
+    if (id == null) {
+      this.getProducts();
+    } else {
+      this.productService.getProductsByCategory(id).then(products => this.productsList = products);
+    }
   }
 
   onSelect(product: any): void {

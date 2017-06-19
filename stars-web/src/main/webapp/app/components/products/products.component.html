@@ -1,8 +1,15 @@
-<ul>
-  <li *ngFor="let product of productsList">
-    {{productName}}
-    {{product.productBriefDescription}}
-  </li>
-</ul>
-<button (click)="addHero(newHeroName.value); newHeroName.value=''">Add Hero</button>
-<p class="error" *ngIf="errorMessage">{{errorMessage}}</p>
+<span>
+  <details-panel></details-panel>
+</span>
+<filter></filter>
+<div id="gallery">
+  <ul>
+    <li *ngFor="let product of productsList">
+      <md-card class="item">
+        <p>{{product?.name}}</p>
+        <p>{{product?.description}}</p>
+        <p>{{product?.productBriefDescription}}</p>
+      </md-card>
+    </li>
+  </ul>
+</div>

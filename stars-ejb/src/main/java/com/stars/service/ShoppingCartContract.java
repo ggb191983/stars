@@ -6,7 +6,7 @@ import javax.ws.rs.core.*;
 /**
  * Created by Battlehammer on 10/12/2016.
  */
-@Path("/cart")
+@Path("api/cart")
 public interface ShoppingCartContract {
     @GET
     @Path("/{id}")

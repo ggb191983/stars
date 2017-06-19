@@ -132,6 +132,21 @@
            <scope>provided</scope>
        </dependency>
 
+       <dependency>
+           <groupId>com.h2database</groupId>
+           <artifactId>h2</artifactId>
+           <version>1.4.193</version>
+       </dependency>
+       <dependency>
+           <groupId>com.stars</groupId>
+           <artifactId>stars-service</artifactId>
+           <version>1.0-SNAPSHOT</version>
+       </dependency>
+       <dependency>
+           <groupId>com.stars</groupId>
+           <artifactId>stars-service</artifactId>
+           <version>1.0-SNAPSHOT</version>
+       </dependency>
    </dependencies>
 
    <build>
@@ -145,6 +160,45 @@
                <failOnMissingWebXml>false</failOnMissingWebXml>
             </configuration>
          </plugin>
+         <plugin>
+              <groupId>com.btmatthews.maven.plugins.inmemdb</groupId>
+              <artifactId>inmemdb-maven-plugin</artifactId>
+              <version>1.4.3</version>
+              <configuration>
+                  <monitorKey>inmemdb</monitorKey>
+                  <daemon>false</daemon>
+                  <type>h2</type>
+                  <username>sa</username>
+                  <password></password>
+                  <monitorPort>9092</monitorPort>
+                  <database>test</database>
+                  <attributes>
+                      <PAGE_SIZE>512</PAGE_SIZE>
+                  </attributes>
+              </configuration>
+              <executions>
+                  <execution>
+                      <id>start-db</id>
+                      <goals>
+                          <goal>run</goal>
+                      </goals>
+                      <phase>pre-integration-test</phase>
+                      <configuration>
+                          <sources>
+                              <source>src/test/resources/create_database.sql</source>
+                              <!--<source>src/test/resources/users.dbunit.xml</source>-->
+                          </sources>
+                      </configuration>
+                  </execution>
+                  <execution>
+                      <id>stop-db</id>
+                      <goals>
+                          <goal>stop</goal>
+                      </goals>
+                      <phase>post-integration-test</phase>
+                  </execution>
+              </executions>
+          </plugin>
       </plugins>
    </build>
 

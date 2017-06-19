@@ -24,8 +24,8 @@ public class CategoryDao extends AbstractDao<Category> {
         return getEntityManager().find(getClazz(), id, hints);
     }
 
-    public List<Category> findAll() {
+    /*public List<Category> findAll() {
         EntityGraph entityGraph = getEntityManager().getEntityGraph("Category");
         return getEntityManager().createNamedQuery("Category.findAll", getClazz()).setHint("javax.persistence.fetchgraph", getEntityGraph()).getResultList();
-    }
+    }*/
 }

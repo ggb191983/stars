@@ -21,7 +21,8 @@ public class LoggingRestFilter implements ContainerRequestFilter, ContainerRespo
         KeycloakPrincipal userPrincipal = (KeycloakPrincipal) requestContext.getSecurityContext().getUserPrincipal();
         //responseContext.getHeaders().putSingle("Access-Control-Allow-Origin", "*");
         //logger.info(userPrincipal.getKeycloakSecurityContext().getIdToken().getEmail());
-        logger.info(requestContext.getSecurityContext().getUserPrincipal().getName());
+        if(requestContext.getSecurityContext().getUserPrincipal() != null)
+            logger.info(requestContext.getSecurityContext().getUserPrincipal().getName());
 
     }
 

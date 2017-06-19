@@ -24,6 +24,8 @@
         <processorPath useClasspath="true" />
         <module name="stars-ear" />
         <module name="stars-ejb" />
+        <module name="stars-functional-tests" />
+        <module name="stars-service" />
         <module name="stars-web" />
       </profile>
     </annotationProcessing>
@@ -31,6 +33,8 @@
       <module name="stars" target="1.8" />
       <module name="stars-ear" target="1.8" />
       <module name="stars-ejb" target="1.8" />
+      <module name="stars-functional-tests" target="1.8" />
+      <module name="stars-service" target="1.8" />
       <module name="stars-web" target="1.8" />
     </bytecodeTargetLevel>
   </component>

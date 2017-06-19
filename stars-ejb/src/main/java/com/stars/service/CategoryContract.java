@@ -9,7 +9,7 @@ import java.util.*;
 /**
  * Created by Battlehammer on 02/01/2017.
  */
-@Path("/category")
+@Path("public/category")
 public interface CategoryContract {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
